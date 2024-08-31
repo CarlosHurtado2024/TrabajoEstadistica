@@ -1,0 +1,88 @@
+---
+title: "Trabajo Estadística Descriptiva"
+author: "Efrain Hurtado Muñoz"
+format: html
+editor: visual
+---
+
+```{r}
+# Librerias
+library(readxl)
+library(writexl)
+```
+
+### Lectura de la base de datos
+
+```{r}
+datos <- read_excel("C:/Users/canoh/Documents/Trabajo Estadística Tocayo/Datos - AE Estadistica.xlsx")
+```
+
+```{r}
+# Cambiando el nombre de las columnas
+names(datos) <- c("Integrante_del_hogar","Sexo","Edad","Nivel_educacional", "Categoria_ocupacional", "Acuerdo", "Monto_total", "Horas_semanales" )
+
+```
+
+```{r}
+# pasar a tipo categoricas las variables correspondientes
+datos$Integrante_del_hogar <- factor(datos$Integrante_del_hogar)
+datos$Sexo <- factor(datos$Sexo)
+datos$Nivel_educacional <- factor(datos$Nivel_educacional)
+datos$Categoria_ocupacional <- factor(datos$Categoria_ocupacional)
+datos$Acuerdo <- factor(datos$Acuerdo)
+```
+
+```{r}
+#cambiar los nombres de los niveles de las variables categoricas
+levels(datos$Integrante_del_hogar) <- c("Si", "No")
+levels(datos$Sexo) <- c("Hombre", "Mujer")
+levels(datos$Nivel_educacional) <- c("Ninguno", "Primaria", "Secundaria", "Superior", "No sabe")
+levels(datos$Categoria_ocupacional) <- c("Trabajador asalariado", "Socios trabajadores", "Familiar sin pago", "Practicantes", "No sabe", "No responde")
+levels(datos$Acuerdo) <- c("Acuerdo de palabra", "Escrito", "Escrito y firmado ante notario", "No sabe")
+```
+
+```{r}
+#resumen
+summary(datos)
+```
+
+```{r}
+#Se eliminan los registros donde edad sea  “888” y “999”
+datos <- datos[datos$Edad != 888 & datos$Edad != 999, ]
+```
+
+```{r}
+
+# Calcular la frecuencia absoluta
+frecuencia_absoluta <- table(datos$Edad)
+
+# Calcular la frecuencia relativa
+frecuencia_relativa <- prop.table(frecuencia_absoluta)
+
+# Calcular la frecuencia acumulada
+frecuencia_acumulada <- cumsum(frecuencia_absoluta)
+
+# Calcular la frecuencia relativa acumulada
+frecuencia_relativa_acumulada <- cumsum(frecuencia_relativa)
+
+# Crear un dataframe con todas las frecuencias
+tabla_frecuencias <- data.frame(
+  Edad = names(frecuencia_absoluta),
+  Frecuencia_Absoluta = as.vector(frecuencia_absoluta),
+  Frecuencia_Relativa = as.vector(frecuencia_relativa),
+  Frecuencia_Acumulada = as.vector(frecuencia_acumulada),
+  Frecuencia_Relativa_Acumulada = as.vector(frecuencia_relativa_acumulada)
+)
+
+# Mostrar la tabla de frecuencias
+print(tabla_frecuencias)
+
+```
+
+```{r}
+write_xlsx(tabla_frecuencias, "Tabla de frecuencia Edad.xlsx")
+```
+
+```{r}
+print("Hola mundo")
+```

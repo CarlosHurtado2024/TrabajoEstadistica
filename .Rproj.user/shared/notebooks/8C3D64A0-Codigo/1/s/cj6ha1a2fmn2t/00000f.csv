@@ -1,0 +1,3 @@
+"0","# Cambiando el nombre de las columnas"
+"0","names(datos) <- c(""Integrante_del_hogar"",""Sexo"",""Edad"",""Nivel_educacional"", ""Categoria_ocupacional"", ""Acuerdo"", ""Monto_total"", ""Horas_semanales"" )"
+"0",""

@@ -1,0 +1,6 @@
+"0","#cambiar los nombres de los niveles de las variables categoricas"
+"0","levels(datos$Integrante_del_hogar) <- c(""Si"", ""No"")"
+"0","levels(datos$Sexo) <- c(""Hombre"", ""Mujer"")"
+"0","levels(datos$Nivel_educacional) <- c(""Ninguno"", ""Primaria"", ""Secundaria"", ""Superior"", ""No sabe"")"
+"0","levels(datos$Categoria_ocupacional) <- c(""Trabajador asalariado"", ""Socios trabajadores"", ""Familiar sin pago"", ""Practicantes"", ""No sabe"", ""No responde"")"
+"0","levels(datos$Acuerdo) <- c(""Acuerdo de palabra"", ""Escrito"", ""Escrito y firmado ante notario"", ""No sabe"")"

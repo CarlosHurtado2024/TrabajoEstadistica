@@ -1,0 +1,6 @@
+"0","# pasar a tipo categoricas las variables correspondientes"
+"0","datos$Integrante_del_hogar <- factor(datos$Integrante_del_hogar)"
+"0","datos$Sexo <- factor(datos$Sexo)"
+"0","datos$Nivel_educacional <- factor(datos$Nivel_educacional)"
+"0","datos$Categoria_ocupacional <- factor(datos$Categoria_ocupacional)"
+"0","datos$Acuerdo <- factor(datos$Acuerdo)"
